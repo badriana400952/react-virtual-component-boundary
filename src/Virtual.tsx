@@ -1,36 +1,30 @@
 import React from "react";
 
-
+// Base renderer
 const VirtualBase: React.FC<{ name: string; children: React.ReactNode }> = ({
   name,
   children,
-}) => {
-  return (
-    <section
-      data-virtual={name.toLowerCase()}
-      style={{
-        border: "1px dashed #888",
-        borderRadius: "8px",
-        padding: "12px",
-        margin: "8px 0",
-      }}
-    >
-      <h3 style={{ margin: "0 0 8px", color: "#555" }}>{name}</h3>
-      {children}
-    </section>
-  );
-};
+}) => (
+  <section
+    data-virtual={name.toLowerCase()}
+    className="border-dashed border-2 border-gray-400 rounded p-3 my-2"
+  >
+    <h3 className="text-gray-600">{name}</h3>
+    {children}
+  </section>
+);
 
-export const Virtual = new Proxy(
+// Proxy + type assertion untuk TypeScript
+export const Virtual: Record<
+  string,
+  React.FC<{ children: React.ReactNode }>
+> = new Proxy(
   {},
   {
     get: (_, prop: string) => {
-      const DynamicComponent: React.FC<{ children: React.ReactNode }> = ({
-        children,
-      }) => <VirtualBase name={prop}>{children}</VirtualBase>;
-
-      DynamicComponent.displayName = String(prop);
-      return DynamicComponent;
+      return ({ children }: { children: React.ReactNode }) => (
+        <VirtualBase name={prop}>{children}</VirtualBase>
+      );
     },
   }
 );
