@@ -31,22 +31,46 @@ npm i react-virtual-component-boundary
 ## Penggunaan Visual Component
 
 
-Menampilkan status login pengguna
+MEnggunakan Boundray
 ```
 import React from "react";
-import MyComponent from "react-virtual-component-boundary";
+import Boundray from "react-virtual-component-boundary";
 
 export const HeroSection = () => (
   <section className="flex gap-8">
-    <MyComponent>
+    <Boundray>
       <div >Konten Kiri</div>
-    </MyComponent>
+    </Boundray>
 
-    <MyComponent>
+    <Boundray>
       <div >Konten Kanan</div>
-    </MyComponent>
+    </Boundray>
   </section>
 );
+
+
+```
+
+menggunakan virtual Componen
+```
+import { Virtual } from "react-virtual-component-boundary";
+
+function App() {
+  return (
+    <div>
+      <Virtual.VirtualCard>
+        <p>Hello World!</p>
+      </Virtual.VirtualCard>
+
+      <Virtual.VirtualTable>
+        <table>
+          <tr><td>A</td><td>B</td></tr>
+        </table>
+      </Virtual.VirtualTable>
+    </div>
+  );
+}
+
 
 
 ```

@@ -9,7 +9,7 @@ interface State {
   hasError: boolean;
 }
 
-class MyComponent extends Component<Props, State> {
+class Boundary extends Component<Props, State> {
   state: State = { hasError: false };
 
   static getDerivedStateFromError(_: Error): State {
@@ -18,7 +18,7 @@ class MyComponent extends Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // bisa log error ke service monitoring (Sentry, LogRocket, dll)
-    console.error("Error caught by MyComponent:", error, errorInfo);
+    console.error("Error caught by Boundary:", error, errorInfo);
   }
 
 
@@ -47,4 +47,4 @@ class MyComponent extends Component<Props, State> {
 }
 
 
-export default MyComponent;
+export default Boundary;

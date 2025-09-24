@@ -1,3 +1,4 @@
-import MyComponent from "./MyComponent";
-export default MyComponent;
-export { MyComponent };
+import Boundary from "./Boundary";
+import { Virtual } from "./Virtual";
+export default Boundary;
+export { Boundary, Virtual };

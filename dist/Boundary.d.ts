@@ -6,10 +6,10 @@ interface Props {
 interface State {
     hasError: boolean;
 }
-declare class MyComponent extends Component<Props, State> {
+declare class Boundary extends Component<Props, State> {
     state: State;
     static getDerivedStateFromError(_: Error): State;
     componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void;
     render(): React.ReactNode;
 }
-export default MyComponent;
+export default Boundary;

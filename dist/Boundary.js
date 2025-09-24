@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
-class MyComponent extends react_1.Component {
+class Boundary extends react_1.Component {
     constructor() {
         super(...arguments);
         this.state = { hasError: false };
@@ -12,7 +12,7 @@ class MyComponent extends react_1.Component {
     }
     componentDidCatch(error, errorInfo) {
         // bisa log error ke service monitoring (Sentry, LogRocket, dll)
-        console.error("Error caught by MyComponent:", error, errorInfo);
+        console.error("Error caught by Boundary:", error, errorInfo);
     }
     render() {
         var _a;
@@ -22,4 +22,4 @@ class MyComponent extends react_1.Component {
         return (_a = this.props.children) !== null && _a !== void 0 ? _a : null;
     }
 }
-exports.default = MyComponent;
+exports.default = Boundary;
