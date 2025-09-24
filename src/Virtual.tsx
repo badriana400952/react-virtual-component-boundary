@@ -1,6 +1,6 @@
 import React from "react";
 
-// Base renderer: semua <VirtualX> akan lewat sini
+
 const VirtualBase: React.FC<{ name: string; children: React.ReactNode }> = ({
   name,
   children,
@@ -21,20 +21,16 @@ const VirtualBase: React.FC<{ name: string; children: React.ReactNode }> = ({
   );
 };
 
-// Proxy: auto-generate semua Virtual*
 export const Virtual = new Proxy(
   {},
   {
     get: (_, prop: string) => {
-      if (typeof prop === "string" && prop.startsWith("Virtual")) {
-        const DynamicComponent: React.FC<{ children: React.ReactNode }> = ({
-          children,
-        }) => <VirtualBase name={prop}>{children}</VirtualBase>;
+      const DynamicComponent: React.FC<{ children: React.ReactNode }> = ({
+        children,
+      }) => <VirtualBase name={prop}>{children}</VirtualBase>;
 
-        DynamicComponent.displayName = prop;
-        return DynamicComponent;
-      }
-      throw new Error(`Unknown component: ${String(prop)}`);
+      DynamicComponent.displayName = String(prop);
+      return DynamicComponent;
     },
   }
 );
