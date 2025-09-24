@@ -1,4 +1,5 @@
-# 🧠 React Virtual Component boundary
+
+# 🧠 React Virtual Component
 
 > Komponen React yang powerful dan reusable untuk menjadi Error Boundary sekaligus wrapper modular. Cocok untuk menjaga kode React tetap rapi, aman, dan mudah digunakan ulang tanpa membuat banyak file kecil.
 
@@ -31,12 +32,12 @@ npm i react-virtual-component-boundary
 ## Penggunaan Visual Component
 
 
-MEnggunakan Boundray
+Menggunakan Boundray
 ```
 import React from "react";
 import Boundray from "react-virtual-component-boundary";
 
-export const HeroSection = () => (
+export const App = () => (
   <section className="flex gap-8">
     <Boundray>
       <div >Konten Kiri</div>
@@ -51,7 +52,7 @@ export const HeroSection = () => (
 
 ```
 
-menggunakan virtual Componen
+Menggunakan virtual Componen
 ```
 import { Virtual } from "react-virtual-component-boundary";
 
@@ -77,8 +78,15 @@ function App() {
 ## Cek komponent yang di pecah 
 
 Gunakan React Developer Tools Extension => inspect => sejajar dengan element, console pilih Components lalu cari component mudah
-![alt text](image.png)
 
-install extension https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi
 
-# react-virtual-component-boundary
+
+
+
+![Logo](https://lh3.googleusercontent.com/TNijZW_Gp9MZ3eqXkve0YWDEiHV-a2IpSpD6IJzrV3Y76GJcLEyzX2regTLemXzBHbHVqkKuxnnWDT34Cp4sNh-Y=s120)
+
+
+
+ - [Install Extension](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+
+
